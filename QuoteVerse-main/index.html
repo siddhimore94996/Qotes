@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- favicon here  -->
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./assets/images/favicon/android-chrome-512x512.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=favorite" />
+  <!-- favicon end here  -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/styleBelow500.css" />
+  <title>QuoteVerse</title>
+  <meta name="title" content="QuoteVerse - Explore Inspirational Quotes, Poems, and Verses" />
+  <meta name="description"
+    content="Discover a world of inspiration at QuoteVerse! Dive into a collection of meaningful quotes, soul-stirring poems, and thought-provoking verses." />
+  <meta name="keywords"
+    content="Inspirational Quotes, Motivational Verses, Thoughtful Poems, Meaningful Sayings, Wisdom Quotes, Positive Affirmations, Empowering Words, Life Lessons, Poetry Collection, Daily Inspiration, Uplifting Quotes, Emotional Verses, Heartfelt Poetry, Encouraging Sayings, Spiritual Quotes, Quote Library, Inspiring Poets, Famous Authors, Creative Expression, Words of Encouragement" />
+  <meta name="robots" content="index,follow" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="1 day" />
+  <meta name="author" content="Shariar Hasan" />
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="QuoteVerse - Explore Inspirational Quotes, Poems, and Verses" />
+  <meta property="og:description"
+    content="QuoteVerse is a platform dedicated to sharing inspirational and motivational quotes to inspire and uplift your spirit. Explore a wide collection of quotes on various topics and share your favorites with the world." />
+  <meta property="og:image" content="https://i.ibb.co/LvkdXrP/Quote-Verse-Cover.png" />
+  <meta property="og:url" content="https://quote-verse.netlify.app/" />
+  <meta property="og:type" content="website" />
+
+  
+  
+
+
+  
+  
+</head>
+
+<body>
+  <main class="w-full h-screen">
+    
+    <!-- Language Selection Dropdown -->
+    <div class="language-selector">
+      <select id="languageSwitcher">
+
+        <option value="en" selected>English</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="kn">Kannada</option>
+        <option value="ml">Malayalam</option>
+        <option value="mr">Marathi</option>
+        <option value="bn">Bengali</option>
+        <option value="ar">Arabic</option>
+        <option value="ru">Russian</option>
+        <option value="es">Spanish</option>
+        <option value="zh">Chinese (Simplified)</option>
+        <option value="de">German</option>
+        <option value="fr">French</option>
+        <option value="pt">Portuguese</option>
+        <option value="it">Italian</option>
+        <option value="ja">Japanese</option>
+      </select>
+    </div>
+  
+    <div class="container">
+      <!-- Quote Section -->
+      <section>
+        <div class="quote" title="Click to copy quote to clipboard">
+          <h1 class="quote-text" id="quoteTextTag" >
+            <!-- Quote will appear here  -->
+          </h1>
+          <h5 class="quote-author" id="quoteAuthorTag">
+            <!-- Quote Author will appear here  -->
+          </h5>
+          <span id="copy_tooltip"></span>
+        </div>
+        <span class="material-symbols-outlined heart-icon">
+          favorite
+          </span>
+        <canvas id="quoteCanvas" class="quote-img" style="visibility: hidden; display: none;">Canvas is not supported by
+          your web browser</canvas>
+      </section>
+
+      <!-- Control Section Section -->
+      <section class="controllerSection">
+        <div class="controller">
+          <!-- Share Button -->
+          <div class="shareAndcontribute">
+            <div class="shareWith text-right">
+                            <div class="popup" id="share-popup" style="display: none;">
+                <ul>
+                  <li><a href="#" class="share-link" data-platform="facebook" title="Share on Facebook"><i class="fab fa-facebook fa-3x"></i>facebook</a></li>
+                  <li><a href="#" class="share-link" data-platform="telegram" title="Share on Telegram"><i class="fab fa-telegram fa-3x"></i>telegram</a></li>
+                  <li><a href="#" class="share-link" data-platform="twitter" title="Share on Twitter"><i class="fab fa-twitter fa-3x"></i>twitter</a></li>
+                  <li><a href="#" class="share-link" data-platform="linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin fa-3x"></i>linkedin</a></li>
+                  <li><a href="#" class="share-link" data-platform="weixin" title="Share on Zalo"><i class="fab fa-weixin fa-3x"></i>copy</a></li>
+                </ul>
+              </div>
+              
+            </div>
+            
+          </div>
+          <div class="controller-wrapper w-full">
+            <div class="controller-group w-full">
+              <button class="btn-generator w-full" id="generateQuoteBtn" data-i18n="generate">
+                Generate <i class="fa-solid fa-rotate"></i>
+              </button>
+              <select name="selectedCategoryTag" id="selectedCategoryTag" class="capitalise w-full"></select>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      
+
+      <div id="theme_changer_button" class="theme_changer_button">
+        <span class="button-text" data-i18n="color">Color</span>
+        <input type="color" id="color_picker" value="#ededed">
+      </div>
+
+  </main>
+
+
+
+<!-- Other existing script tags -->
+<script src="./node_modules/i18next/i18next.js"></script>
+<script src="./node_modules/i18next-http-backend/i18nextHttpBackend.js"></script>
+<script src="./node_modules/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.js"></script>
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/jquery-i18next/jquery-i18next.js"></script>
+<script type="module" src="./assets/js/lang.js"></script>
+<script src="./Quotes.js"></script>
+<script src="./assets/js/others.js"></script>
+<script src="./assets/js/main.js"></script>
+
+<script>
+  const shareButton = document.getElementById('share-button');
+  const sharePopup = document.getElementById('share-popup');
+
+  shareButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    sharePopup.style.display = sharePopup.style.display === 'none' || sharePopup.style.display === '' ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!shareButton.contains(event.target) && !sharePopup.contains(event.target)) {
+      sharePopup.style.display = 'none';
+    }
+  });
+
+  function encodeQuote(quote, author) {
+    return encodeURIComponent(`"${quote}" - ${author}`);
+  }
+
+  document.querySelectorAll('.popup a').forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const platform = event.currentTarget.getAttribute('title').split(' ')[2].toLowerCase();
+
+      const quoteText = document.getElementById('quoteTextTag').innerText;
+      const quoteAuthor = document.getElementById('quoteAuthorTag').innerText;
+
+      const encodedQuote = encodeQuote(quoteText, quoteAuthor);
+      const shareUrl = `https://quote-verse.netlify.app/`;
+
+      switch (platform) {
+        case 'facebook':
+          window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, '_blank');
+          break;
+        case 'telegram':
+          window.open(`https://t.me/share/url?url=${shareUrl}&text=${encodedQuote}`, '_blank');
+          break;
+        case 'twitter':
+          window.open(`https://twitter.com/intent/tweet?text=${encodedQuote}&url=${shareUrl}`, '_blank');
+          break;
+        case 'linkedin':
+          window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${encodedQuote}`, '_blank');
+          break;
+        default:
+          console.log('Unknown platform');
+      }
+
+      sharePopup.style.display = 'none';
+    });
+  });
+</script>
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
